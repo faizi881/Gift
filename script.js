@@ -5,7 +5,6 @@ let isMusicPlaying = false;
 let bgMusic;
 let heartsCount = 9999;
 let loveLevel = 100;
-let isHeartRainActive = false;
 
 // Countdown timer variables
 let startDate = new Date('2020-08-12T00:00:00'); // August 12, 2020 - when love began
@@ -22,7 +21,7 @@ const musicToggle = document.getElementById('musicToggle');
 const heartsCountElement = document.getElementById('heartsCount');
 const loveMeterElement = document.getElementById('loveMeter');
 const loveLevelElement = document.getElementById('loveLevel');
-const heartRain = document.getElementById('heartRain');
+
 const clickableHearts = document.querySelector('.clickable-hearts');
 
 // Countdown timer elements
@@ -58,8 +57,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add some interactive effects
     addInteractiveEffects();
     
-    // Start heart rain effect
-    startHeartRain();
+    // Hide welcome page and show anniversary page directly
+    hideAllPages();
+    showPage(anniversaryPage);
+    addPageTransitionEffect(anniversaryPage);
 });
 
 // Initialize countdown timer
@@ -136,10 +137,7 @@ function handleHeartClick(event) {
     // Show heart burst effect
     createHeartBurst(x, y);
     
-    // Trigger heart rain if enough hearts
-    if (heartsCount % 100 === 0) {
-        triggerHeartRain();
-    }
+
 }
 
 // Create floating heart at specific position
@@ -326,7 +324,6 @@ function createQuarterSparkles() {
 function createYearSparkles() {
     createSparkles('💎', 15, '#a8e6cf');
     createConfetti();
-    triggerHeartRain();
 }
 
 // Create sparkles with specific emoji, count, and color
@@ -414,48 +411,11 @@ function createEnhancedSparkles() {
 }
 
 // Start heart rain effect
-function startHeartRain() {
-    setInterval(() => {
-        if (Math.random() < 0.2 && !isHeartRainActive) { // 20% chance
-            triggerHeartRain();
-        }
-    }, 15000); // Every 15 seconds
-}
 
-// Trigger heart rain
-function triggerHeartRain() {
-    if (isHeartRainActive) return;
-    
-    isHeartRainActive = true;
-    createHeartRain();
-    
-    setTimeout(() => {
-        isHeartRainActive = false;
-    }, 5000);
-}
 
-// Create heart rain
-function createHeartRain() {
-    for (let i = 0; i < 20; i++) {
-        setTimeout(() => {
-            const rainHeart = document.createElement('div');
-            rainHeart.className = 'rain-heart';
-            rainHeart.innerHTML = '💕';
-            rainHeart.style.left = Math.random() * 100 + '%';
-            rainHeart.style.animationDelay = Math.random() * 2 + 's';
-            rainHeart.style.animationDuration = (Math.random() * 2 + 3) + 's';
-            
-            heartRain.appendChild(rainHeart);
-            
-            // Remove heart after animation
-            setTimeout(() => {
-                if (rainHeart.parentNode) {
-                    rainHeart.parentNode.removeChild(rainHeart);
-                }
-            }, 6000);
-        }, i * 100);
-    }
-}
+
+
+
 
 // Create love sparkles
 function createLoveSparkles() {
@@ -535,7 +495,6 @@ function startJourney() {
     
     // Create special effects when starting journey
     createEnhancedSparkles();
-    triggerHeartRain();
 }
 
 function goToLoveStory() {
@@ -563,7 +522,6 @@ function goToCoverLetter() {
     
     // Special effect for love letter
     createLoveSparkles();
-    triggerHeartRain();
 }
 
 function goToAnniversary() {
@@ -581,6 +539,8 @@ function hideAllPages() {
         }
     });
 }
+
+
 
 function showPage(page) {
     if (page) {
@@ -1024,7 +984,6 @@ setInterval(() => {
 function checkMilestones() {
     // Hearts milestones
     if (heartsCount >= 10000 && heartsCount < 10001) {
-        triggerHeartRain();
         createLoveSparkles();
         createEnhancedSparkles();
     }
