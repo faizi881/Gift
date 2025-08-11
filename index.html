@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maryam & My Love Story - 5th Anniversary</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
+    </audio>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="heart-icon">💕</div>
+            <h2>Loading Our Love Story...</h2>
+            <p>Loading Our Love Story... 0%</p>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts"></div>
+
+    <!-- Anniversary Countdown Timer -->
+    <div class="countdown-panel">
+        <div class="countdown-header">
+            <i class="fas fa-heart"></i>
+            <span>Time Since Our Love Began</span>
+        </div>
+        <div class="countdown-timer">
+            <div class="countdown-item">
+                <div class="countdown-number" id="yearsCount">0</div>
+                <div class="countdown-label">Years</div>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="monthsCount">0</div>
+                <div class="countdown-label">Months</div>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="daysCount">0</div>
+                <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hoursCount">0</div>
+                <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutesCount">0</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="secondsCount">0</div>
+                <div class="countdown-label">Seconds</div>
+            </div>
+        </div>
+        <div class="countdown-message">
+            <span>Every moment with you is precious ❤️</span>
+        </div>
+    </div>
+
+    <!-- Hearts Counter -->
+    <div class="hearts-counter-panel">
+        <div class="hearts-counter">
+            <i class="fas fa-heart"></i>
+            <span id="heartsCount">9,999</span>
+            <span class="label">Hearts</span>
+        </div>
+        <div class="love-meter">
+            <div class="meter-fill" id="loveMeter"></div>
+            <span class="meter-text">Love Level: <span id="loveLevel">Infinite</span></span>
+        </div>
+    </div>
+
+    <!-- Start Page -->
+    <div id="start-page" class="page active">
+        <div class="container">
+            <div class="main-title">
+                Welcome to Our Love Story
+            </div>
+            <div class="names">
+                <span class="name">Maryam</span>
+                <span class="heart-icon">💕</span>
+                <span class="name">My Love</span>
+            </div>
+            <div class="subtitle">
+                Celebrating 5 Beautiful Years Together
+            </div>
+            <div class="start-button-container">
+                <button class="start-btn" onclick="startJourney()">
+                    <i class="fas fa-heart"></i>
+                    Begin Our Story
+                </button>
+            </div>
+            
+            <!-- Interactive Hearts Area -->
+            <div class="interactive-hearts">
+                <div class="heart-message">Click anywhere to add hearts! 💕</div>
+                <div class="clickable-hearts"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Anniversary Page -->
+    <div id="anniversary-page" class="page">
+        <div class="container">
+            <h1 class="page-title">Happy 5th Anniversary!</h1>
+            
+            <div class="anniversary-card">
+                <div class="card-3d">
+                    <div class="card-front">
+                        <h2>5 Years of Love</h2>
+                        <div class="anniversary-date">
+                            <div class="month">August</div>
+                            <div class="date">12</div>
+                            <div class="year">2020 - 2025</div>
+                        </div>
+                        <p class="anniversary-message">
+                            Five incredible years of love, laughter, and beautiful memories together. 
+                            Every moment with you has been a blessing, and I can't wait to spend 
+                            many more years loving you more each day.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button class="nav-btn" onclick="goToLoveStory()">
+                    <i class="fas fa-book-open"></i>
+                    Our Love Story
+                </button>
+                <button class="nav-btn" onclick="goToMemories()">
+                    <i class="fas fa-images"></i>
+                    Our Memories
+                </button>
+                <button class="nav-btn" onclick="goToCoverLetter()">
+                    <i class="fas fa-envelope"></i>
+                    Love Letter
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Love Story Page -->
+    <div id="love-story-page" class="page">
+        <div class="container">
+            <h1 class="page-title">Our Love Story</h1>
+            
+            <div class="story-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>First Meeting</h3>
+                        <p>The day our eyes met and our hearts connected forever. A moment that changed our lives.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>First Date</h3>
+                        <p>Our magical first date where we discovered how perfect we were for each other.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Official Relationship</h3>
+                        <p>August 12, 2020 - The day we officially became a couple and started our beautiful journey.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>First Anniversary</h3>
+                        <p>Celebrating one year of love, growth, and beautiful memories together.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>5th Anniversary</h3>
+                        <p>Five years of unconditional love, support, and building our future together.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="back-btn" onclick="goToAnniversary()">
+                <i class="fas fa-arrow-left"></i>
+                Back to Anniversary
+            </button>
+        </div>
+    </div>
+
+    <!-- Memories Page -->
+    <div id="memories-page" class="page">
+        <div class="container">
+            <h1 class="page-title">Our Precious Memories</h1>
+            
+            <div class="photo-slider">
+                <div class="slider-container">
+                    <div class="slide active">
+                        <div class="memory-card">
+                            <div class="memory-image">💕</div>
+                            <h3>First Kiss</h3>
+                            <p>The magical moment when our lips met for the first time, sealing our love forever.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="memory-card">
+                            <div class="memory-image">🌹</div>
+                            <h3>First Valentine's</h3>
+                            <p>Our first Valentine's Day together, filled with roses, chocolates, and endless love.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="memory-card">
+                            <div class="memory-image">🎉</div>
+                            <h3>First Anniversary</h3>
+                            <p>Celebrating one year of our beautiful relationship with cake, gifts, and love.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="memory-card">
+                            <div class="memory-image">✈️</div>
+                            <h3>First Trip Together</h3>
+                            <p>Our first adventure together, exploring new places and creating unforgettable memories.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="memory-card">
+                            <div class="memory-image">💍</div>
+                            <h3>Future Dreams</h3>
+                            <p>Dreaming of our future together, building a life filled with love and happiness.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slider-controls">
+                    <button class="prev-btn" onclick="changeSlide(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="next-btn" onclick="changeSlide(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="slider-dots">
+                    <span class="dot active" onclick="goToSlide(1)"></span>
+                    <span class="dot" onclick="goToSlide(2)"></span>
+                    <span class="dot" onclick="goToSlide(3)"></span>
+                    <span class="dot" onclick="goToSlide(4)"></span>
+                    <span class="dot" onclick="goToSlide(5)"></span>
+                </div>
+            </div>
+
+            <button class="back-btn" onclick="goToAnniversary()">
+                <i class="fas fa-arrow-left"></i>
+                Back to Anniversary
+            </button>
+        </div>
+    </div>
+
+    <!-- Cover Letter Page -->
+    <div id="cover-letter-page" class="page">
+        <div class="container">
+            <h1 class="page-title">My Love Letter to You</h1>
+            
+            <div class="love-letter">
+                <div class="letter-content">
+                    <p class="letter-text">
+                        My Dearest Maryam,
+                    </p>
+                    <p class="letter-text">
+                        As I sit here writing this letter on our 5th anniversary, my heart is overflowing with love for you. 
+                        These past five years have been the most beautiful and meaningful years of my life.
+                    </p>
+                    <p class="letter-text">
+                        Every day with you is a gift from God. Your smile brightens my darkest days, your love gives me 
+                        strength when I'm weak, and your presence makes every moment special. You are not just my girlfriend, 
+                        you are my best friend, my soulmate, and my everything.
+                    </p>
+                    <p class="letter-text">
+                        From our first meeting to this beautiful anniversary, every memory we've created together is 
+                        precious to me. Your love has taught me what true happiness means, and I promise to love you 
+                        more with each passing day.
+                    </p>
+                    <p class="letter-text">
+                        Maryam, you are the most beautiful person I have ever known, both inside and out. Your kindness, 
+                        your strength, your love - everything about you makes me fall in love with you more every day.
+                    </p>
+                    <p class="letter-text">
+                        I promise to always be there for you, to support you, to love you unconditionally, and to make 
+                        you happy every single day. You deserve all the love and happiness in the world.
+                    </p>
+                    <p class="letter-text signature">
+                        Forever Yours,<br>
+                        With All My Love ❤️
+                    </p>
+                </div>
+            </div>
+
+            <button class="back-btn" onclick="goToAnniversary()">
+                <i class="fas fa-arrow-left"></i>
+                Back to Anniversary
+            </button>
+        </div>
+    </div>
+
+    <!-- Music Control -->
+    <div class="music-control">
+        <button id="musicToggle">
+            <i class="fas fa-music"></i>
+        </button>
+    </div>
+
+    <!-- Heart Rain Effect -->
+    <div class="heart-rain" id="heartRain"></div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
