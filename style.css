@@ -135,6 +135,7 @@ body {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     animation: countdownFloat 3s ease-in-out infinite;
     transition: all 0.3s ease;
+    display: none;
 }
 
 .countdown-panel:hover {
@@ -226,6 +227,7 @@ body {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     animation: heartsPanelFloat 3s ease-in-out infinite;
     transition: all 0.3s ease;
+    display: none;
 }
 
 .hearts-counter-panel:hover {
@@ -306,7 +308,7 @@ body {
 .page {
     display: none;
     min-height: 100vh;
-    padding: 100px 20px 40px 80px;
+    padding: 100px 20px 40px;
     position: relative;
     z-index: 2;
 }
@@ -798,7 +800,7 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .page {
-        padding: 80px 20px 40px 60px;
+        padding: 80px 20px 40px;
     }
     
     .main-title {
@@ -864,7 +866,7 @@ body {
 
 @media (max-width: 480px) {
     .page {
-        padding: 70px 15px 30px 50px;
+        padding: 70px 15px 30px;
     }
     
     .countdown-panel {
